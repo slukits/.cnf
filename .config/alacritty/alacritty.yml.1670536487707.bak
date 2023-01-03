@@ -1,0 +1,25 @@
+window:
+  decorations: none
+  opacity: 0.9
+
+font:
+  normal:
+    family: Go Mono
+    style: Regular
+  bold:
+    family: Go Mono
+    style: Bold
+  italic:
+    family: Go Mono
+    style: Italic
+  bold_italic:
+    family: Go Mono
+    style: Bold Italic
+  size: 9.0
+
+bell:
+  animation: EaseOutExpo
+  duration: 200
+    
+colors:
+  transparent_background_colors: false

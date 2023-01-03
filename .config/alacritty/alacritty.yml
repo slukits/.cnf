@@ -1,0 +1,53 @@
+window:
+  decorations: none
+  opacity: 0.9
+
+font:
+  normal:
+    family: Go Mono
+    style: Regular
+  bold:
+    family: Go Mono
+    style: Bold
+  italic:
+    family: Go Mono
+    style: Italic
+  bold_italic:
+    family: Go Mono
+    style: Bold Italic
+  size: 9.0
+
+bell:
+  animation: EaseOutExpo
+  duration: 200
+
+colors:
+  # Default colors
+  primary:
+    # hard contrast: background = '#1d2021'
+    background: '#282828'
+    # soft contrast: background = '#32302f'
+    foreground: '#ebdbb2'
+
+  # Normal colors
+  normal:
+    black: '#282828'
+    red: '#cc241d'
+    green: '#98971a'
+    yellow: '#d79921'
+    blue: '#458588'
+    magenta: '#b16286'
+    cyan: '#689d6a'
+    white: '#a89984'
+
+  # Bright colors
+  bright:
+    black: '#928374'
+    red: '#fb4934'
+    green: '#b8bb26'
+    yellow: '#fabd2f'
+    blue: '#83a598'
+    magenta: '#d3869b'
+    cyan: '#8ec07c'
+    white: '#ebdbb2'
+theme: Gruvbox-Dark
