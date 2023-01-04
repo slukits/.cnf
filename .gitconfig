@@ -1,0 +1,17 @@
+# This is Git's per-user configuration file.
+
+[user]
+# Please adapt and uncomment the following lines:
+name = Stephan Lukits
+email = stephan.lukits@gmail.com
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = false
+
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[core]
+	editor = vim
