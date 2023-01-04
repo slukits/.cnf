@@ -1,0 +1,11 @@
+0a.d.,0ad
+backup (kopia-ui),kopia-ui
+email (aerc),alacritty -e aerc
+filemanager (vifm),alacritty -e vifm
+mixer (alsamixer),alacritty -e alsamixer
+terminal (alacritty),alacritty
+usb-mount (udiskctl),alacritty -e bashmount
+video (vlc),vlc
+vscode,code
+www-google (google-chrome-stable),google-chrome-stable
+www-firefox,firefox
