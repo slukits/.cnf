@@ -87,6 +87,10 @@
    $ sudo mkarchiso -v -w /tmp/archiso-tmp ./iso
    the iso can be found then in ~/oryxpro/out
 
+- probably we are faster to set up the minimal installation of a
+  default with working internet followed by an installation of the
+  oryxpro AUR-packages.
+
 - to test the image the packages qemu-desktop and edk2-ovmf must be 
   installed and virtualization must be turned on in the BIOS.
   $ sudo modprobe kvm
@@ -115,6 +119,8 @@
   is installed as well as
   $ pacman -S vim vifm base-devel
   the later we need to compile AUR-packages like trash-d
+  NOTE vim has no clipboard support; there is a AUR-package
+  https://aur.archlinux.org/packages/vim-clipboard
 
 - add a non root user with sudo-privelidges
   # pacman -S sudo
@@ -149,6 +155,28 @@
     $ cnf checkout HEAD .bashrc
     the later will overwrite the existing .bashrc with the .bashrc in 
     the repository
+
+- some pacman basics:
+  which package provides a given file
+  $ sudo pacman -Fy
+  the later downloads the files repository data bases.
+  $ pacman -F prime-run
+  the later will tell now in which package given binary 'prime-run' is
+  To update the packages data bases run:
+  $ sudo pacman -Sy
+  To update the whole system run:
+  $ sudo pacman -Syu
+  To remove package pkg and all its unneeded dependencies run:
+  $ sudo pacman -Rs pkg
+  to provide information about a installed package pkg
+  $ sudo pacman -Qi pkg
+  to list files belonging to installed package pkg
+  $ sudo pacman -Ql pkg
+  to list files belonging to a remote package pkg
+  $ sudo pacman -Fl pkg
+  NOTE there is a AUR-package: downgrade which allows to downgrade an
+  upgraded package to an older cached version, i.e. basically do undo
+  and upgrade
 
 - to make as quickly as possible use from the capabilities of our 
   graphic card add xorg
@@ -196,4 +224,33 @@
   $ cd ~/Downloads/arch/
   $ git clone https://aur.archlinux.org/kopia-ui-bin.git
   $ cd bashmount && makepkg -sri
+  NOTE to mount a snapshot to the local file-system to restore
+  content of it we need
+  $ git clone https://aur.archlinux.org/fuse-archive.git
   
+- to suspend including the nvidia graphics card the following services
+  must be enabled
+  $ sudo systemctl enable nvidia-suspend.service
+  $ sudo systemctl enable nvidia-hibernate.service
+  $ sudo systemctl enable nvidia-resume.service
+  if these services are not there try installing
+  $ sudo pacman -S nvidia-utils
+
+- to use hybrid graphics the following needs to be run once
+  $ system76-power graphics hybrid
+  then
+  $ glxinfo | grep -i vendor
+  and
+  $ prime-run glxinfo | grep -i vendor
+  should report different vendors (intel/nvidea). If prime-run is not there run
+  $ sudo pacman -S nvidia-prime
+
+- to configure multible plugged screens into the oryx pro use
+  $ sudo pacman -S arandr
+  use
+  $ sudo pacman -S autorandr
+  to save a arandr, i.e. XRandR, setup for automatic recognition
+  $ autorandr --save noexternals
+  and add to .xinitrc (before exec i3)
+    autorandr --change
+  to have autorandr choose the right setup for the current hardware configuration.

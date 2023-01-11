@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale '/home/goedel/.local/share/wallpaper/black_whole.jpg' 
+feh --no-fehbg --bg-fill '/home/goedel/.local/share/wallpaper/black_whole.jpg' 

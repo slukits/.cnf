@@ -233,9 +233,13 @@ fileviewer {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 filextype {*.xhtml,*.html,*.htm},<text/html>
         \ {Open with qutebrowser}
         \ qutebrowser %f %i &,
+	\ {Open with chrome}
+	\ google-chrome %f &,
         \ {Open with firefox}
         \ firefox %f &,
 filetype {*.xhtml,*.html,*.htm},<text/html> links, lynx
+
+filetype {*.epub},<application/epub+zip> FBReader
 
 " Object
 filetype {*.o},<application/x-object> nm %f | less
