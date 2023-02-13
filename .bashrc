@@ -14,6 +14,7 @@ export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
 PATH="/home/goedel/.local/bin:/home/goedel/go/bin:/usr/local/go/bin"$PATH
 export EDITOR=vim
 export GTK_THEME=Arc-Gruvbox
+export SYSTEMD_EDITOR=vim
 
 set -o vi
 bind '"jk":vi-movement-mode'
@@ -28,4 +29,6 @@ cnf config --local status.showUntrackedFiles no
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f /usr/share/fzf/completion.bash ] && source /usr/share/fzf/completion.bash
 [ -f /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
+
+[ -f /usr/share/git/completion/git-completion.bash ] && source /usr/share/git/completion/git-completion.bash
 

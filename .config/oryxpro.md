@@ -110,6 +110,8 @@
 - boot the image and follow 
   https://wiki.archlinux.org/title/installation_guide
 
+- see efibootmgr for setup efi-boot
+
 - for WIFI netework to work after the reboot iwd and dhcpcd must be 
   installed and enabled:
   $ systemctl enable iwd.service
@@ -254,3 +256,28 @@
   and add to .xinitrc (before exec i3)
     autorandr --change
   to have autorandr choose the right setup for the current hardware configuration.
+
+- NOTE i3lock -i works only with *.png files (not *.jpg)
+
+- Boot into a locked i3-gaps session
+  To do so we need to do an systemd-edit which by default uses nano.
+  We prefer vim, i.e.:
+  * add to bash 'SYSTEMD_EDITOR=vim'
+  $ sudo visudo
+  * add the line 'Defaults env_keep += "SYSTEMD_EDITOR"'
+  This should give in a new terminal vim as systemd-editor for the next
+  command:
+  $ sudo systemctl edit getty@tty1
+  There we add
+
+	[Service]
+	ExecStart=  
+	ExecStart=-/sbin/agetty --autologin goedel --noclear %I 38400 linux
+
+  I we don't have an automatic x11 start yet we add  to .bash_profile
+
+	[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+
+  To start i3lock we add to ~/.config/i3/config
+
+	exec --no-startup-id i3lock -c 000000 -i ~/.local/share/wallpaper/black_whole.png

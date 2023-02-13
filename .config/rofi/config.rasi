@@ -4,7 +4,6 @@ configuration {
 /*	location: 0;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
-/*	fixed-num-lines: true;*/
 /*	show-icons: false;*/
 /*	terminal: "rofi-sensible-terminal";*/
 /*	ssh-client: "ssh";*/
@@ -156,7 +155,18 @@ configuration {
   kb-remove-to-eol: "Control+D";
   kb-row-up: "Control+k";
   kb-row-down: "Control+j";
-  
+  font: "Go Mono 11";
+  location: 2;
+  terminal: "alacritty";
+  icon-theme: "Papirus";
+  show-icons: false;
+  fixed-num-lines: false;
+  dpi: 0;
 }
-
 @import "gruvbox-dark-hard"
+window {
+  width: 15%;
+}
+listview {
+  scrollbar: false;
+}

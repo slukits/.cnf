@@ -33,7 +33,7 @@ listview {
     padding:      2px 0 0;
     border-color: @separatorcolor;
     spacing:      2px;
-    scrollbar:    @scrollbar;
+    /* scrollbar:    @scrollbar; */
 }
 
 element {
